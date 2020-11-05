@@ -236,7 +236,7 @@ function Main() {
                     )
                   }
                 >
-                  Donate {dappState.donateValue} Ether
+                  Donate {dappState.donateValue} ETH
                 </Button>
               </HStack>
             </>

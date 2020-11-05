@@ -14,10 +14,8 @@ export const isConnected2MetaMask = async () => {
 // send `transaction`, so ethers, from signer address
 export const sendTransaction = async (signer, provider, transaction) => {
   try {
-    console.log('before')
     // send the transaction and return a transaction response
     const tx = await signer.sendTransaction(transaction)
-    console.log('i am here')
     // wait for tx.hash to be mined with 3 block validation and a timeout of 120 seconds
     // if succeed returns a receipt of the transaction
     const receipt = await provider.waitForTransaction(tx.hash, 3, 120000)
