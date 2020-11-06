@@ -13,23 +13,7 @@ import {
 } from '@chakra-ui/core'
 // https://docs.ethers.io/v5/
 import { ethers } from 'ethers'
-import { isConnected2MetaMask } from '../utils/eth-utils'
-
-// send `transaction`, so ethers, from signer address
-const sendTransaction = async (signer, provider, transaction) => {
-  try {
-    console.log('before')
-    // send the transaction and return a transaction response
-    const tx = await signer.sendTransaction(transaction)
-    console.log('i am here')
-    // wait for tx.hash to be mined with 3 block validation and a timeout of 120 seconds
-    // if succeed returns a receipt of the transaction
-    const receipt = await provider.waitForTransaction(tx.hash, 3, 120000)
-    return receipt
-  } catch (e) {
-    return null
-  }
-}
+import { isConnected2MetaMask, sendTransaction } from '../utils/eth-utils'
 
 const web3Reducer = (state, action) => {
   switch (action.type) {
